@@ -19,9 +19,9 @@ from time import time
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 
-from TanuMusic import app
-from TanuMusic.misc import SUDOERS
-from TanuMusic.utils.cleanmode import protect_message
+from ANWIVIBES import app
+from ANWIVIBES.misc import SUDOERS
+from ANWIVIBES.utils.cleanmode import protect_message
 
 
 async def aexec(code, client, message):
