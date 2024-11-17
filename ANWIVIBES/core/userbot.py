@@ -60,8 +60,8 @@ class Userbot(Client):
         if config.STRING1:
             await self.one.start()
             try:
-                await self.one.join_chat("ai_image_junction")
-                await self.one.join_chat("Ai_Audio_Junction")
+                await self.one.join_chat("https://t.me/HEROKUBIN_01")
+                await self.one.join_chat("https://t.me/HEROKUBIN_01")
             except:
                 pass
             assistants.append(1)
