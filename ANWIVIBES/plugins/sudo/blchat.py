@@ -11,12 +11,13 @@ from pyrogram import filters
 from pyrogram.types import Message
 
 from ANWIVIBES import app
+from ANNIEMUSIC.misc import SUDOERS
 from ANWIVIBES.utils.database import blacklist_chat, blacklisted_chats, whitelist_chat
 from ANWIVIBES.utils.decorators.language import language
-from config import BANNED_USERS, OWNER_ID
+from config import BANNED_USERS
 
 
-@app.on_message(filters.command(["blchat", "blacklistchat"]) & OWNER_ID)
+@app.on_message(filters.command(["blchat", "blacklistchat"]) & SUDOERS)
 @language
 async def blacklist_chat_func(client, message: Message, _):
     if len(message.command) != 2:
@@ -36,7 +37,7 @@ async def blacklist_chat_func(client, message: Message, _):
 
 
 @app.on_message(
-    filters.command(["whitelistchat", "unblacklistchat", "unblchat"]) & OWNER_ID
+    filters.command(["whitelistchat", "unblacklistchat", "unblchat"]) & SUDOERS
 )
 @language
 async def white_funciton(client, message: Message, _):
