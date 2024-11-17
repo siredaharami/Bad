@@ -10,7 +10,7 @@
 from pyrogram import filters
 
 from ANWIVIBES import app
-from BADMUSIC.misc import SUDOERS
+from ANWIVIBES.misc import SUDOERS
 from ANWIVIBES.utils.database import add_off, add_on
 from ANWIVIBES.utils.decorators.language import language
 
