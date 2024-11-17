@@ -1,5 +1,5 @@
 from config import LOGGER_ID
-from TanuMusic import app
+from ANWIVIBES import app
 
 protected_messages = {}
 
