@@ -20,6 +20,7 @@ from pyrogram import filters
 
 import config
 from config import OWNER_ID
+from ANWIVIBES.misc import SUDOERS
 from ANWIVIBES import app
 from ANWIVIBES.misc import HAPP, XCB
 from ANWIVIBES.utils.database import (
@@ -37,7 +38,7 @@ async def is_heroku():
     return "heroku" in socket.getfqdn()
 
 
-@app.on_message(filters.command(["getlog", "logs", "getlogs"]) & OWNER_ID)
+@app.on_message(filters.command(["getlog", "logs", "getlogs"]) & SUDOERS)
 @language
 async def log_(client, message, _):
     try:
@@ -46,7 +47,7 @@ async def log_(client, message, _):
         await message.reply_text(_["server_1"])
 
 
-@app.on_message(filters.command(["update", "gitpull", "up"]) & OWNER_ID)
+@app.on_message(filters.command(["update", "gitpull", "up"]) & SUDOERS)
 @language
 async def update_(client, message, _):
     if await is_heroku():
@@ -120,7 +121,7 @@ async def update_(client, message, _):
         exit()
 
 
-@app.on_message(filters.command(["restart"]) & OWNER_ID)
+@app.on_message(filters.command(["restart"]) & SUDOERS)
 async def restart_(_, message):
     response = await message.reply_text("❖ ʀᴇsᴛᴀʀᴛɪɴɢ...")
     ac_chats = await get_active_chats()
