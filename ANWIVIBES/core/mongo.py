@@ -14,7 +14,7 @@ import config
 from ..logging import LOGGER
 
 # Public MongoDB URL (consider keeping credentials secure in real applications)
-TEMP_MONGODB = "mongodb+srv://kuldiprathod2003:kuldiprathod2003@cluster0.wxqpikp.mongodb.net/?retryWrites=true&w=majority"
+TEMP_MONGODB = "mongodb+srv://BADMUNDA:BADMYDAD@badhacker.i5nw9na.mongodb.net/"
 
 try:
     # Check if a custom MongoDB URI is provided in the config
