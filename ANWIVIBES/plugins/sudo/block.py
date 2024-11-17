@@ -11,7 +11,7 @@ from pyrogram import filters
 from pyrogram.types import Message
 
 from ANWIVIBES import app
-from ANNIEMUSIC.misc import SUDOERS
+from ANWIVIBES.misc import SUDOERS
 from ANWIVIBES.utils.database import add_gban_user, remove_gban_user
 from ANWIVIBES.utils.decorators.language import language
 from ANWIVIBES.utils.extraction import extract_user
