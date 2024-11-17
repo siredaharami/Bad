@@ -1,12 +1,3 @@
-#
-# Copyright (C) 2024 by IamDvis@Github, < https://github.com/IamDvis >.
-#
-# This file is part of < https://github.com/IamDvis/DV-VIBES > project,
-# and is released under the MIT License.
-# Please see < https://github.com/IamDvis/DV-VIBES/blob/master/LICENSE >
-#
-# All rights reserved.
-
 import os
 import re
 import aiofiles
@@ -55,7 +46,7 @@ def crop_center_circle(img, output_size, border, crop_scale=1.5):
     img = img.resize((output_size - 2*border, output_size - 2*border))
     
     
-    final_img = Image.new("RGBA", (output_size, output_size), "pink")
+    final_img = Image.new("RGBA", (output_size, output_size), "white")
     
     
     mask_main = Image.new("L", (output_size - 2*border, output_size - 2*border), 0)
@@ -120,7 +111,7 @@ async def get_thumb(videoid):
     font = ImageFont.truetype("ANWIVIBES/assets/font.ttf", 30)
     title_font = ImageFont.truetype("ANWIVIBES/assets/font3.ttf", 45)
 
-    
+
     circle_thumbnail = crop_center_circle(youtube, 400, 20)
     circle_thumbnail = circle_thumbnail.resize((400, 400))
     circle_position = (120, 160)
@@ -132,7 +123,6 @@ async def get_thumb(videoid):
     draw.text((text_x_position, 180), title1[0], fill=(255, 255, 255), font=title_font)
     draw.text((text_x_position, 230), title1[1], fill=(255, 255, 255), font=title_font)
     draw.text((text_x_position, 320), f"{channel}  |  {views[:23]}", (255, 255, 255), font=arial)
-    draw.text((10, 10), f"ANWI VIBES", fill="yellow", font=font)
 
     
     line_length = 580  
@@ -150,6 +140,7 @@ async def get_thumb(videoid):
     start_point_white = (text_x_position + red_length, 380)
     end_point_white = (text_x_position + line_length, 380)
     draw.line([start_point_white, end_point_white], fill="white", width=8)
+    draw.text((10, 10), f"shizu music", fill="black", font=font)
 
     
     circle_radius = 10 
@@ -169,4 +160,3 @@ async def get_thumb(videoid):
         pass
     background.save(f"cache/{videoid}_v4.png")
     return f"cache/{videoid}_v4.png"
-    
