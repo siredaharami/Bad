@@ -11,7 +11,7 @@ from pyrogram import filters
 from pyrogram.types import Message
 
 from ANWIVIBES import app
-from ANWIVIBES.misc import SUDOERS
+from config import OWNER_ID
 from ANWIVIBES.utils.database import (
     get_lang,
     is_maintenance,
@@ -21,7 +21,7 @@ from ANWIVIBES.utils.database import (
 from strings import get_string
 
 
-@app.on_message(filters.command(["maintenance"]) & SUDOERS)
+@app.on_message(filters.command(["maintenance"]) & OWNER_ID)
 async def maintenance(client, message: Message):
     try:
         language = await get_lang(message.chat.id)
