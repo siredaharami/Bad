@@ -14,7 +14,6 @@ from pyrogram.errors import FloodWait
 from pyrogram.types import Message
 
 from ANWIVIBES import app
-from ANWIVIBES.misc import SUDOERS
 from ANWIVIBES.utils import get_readable_time
 from ANWIVIBES.utils.database import (
     add_banned_user,
@@ -26,10 +25,10 @@ from ANWIVIBES.utils.database import (
 )
 from ANWIVIBES.utils.decorators.language import language
 from ANWIVIBES.utils.extraction import extract_user
-from config import BANNED_USERS
+from config import BANNED_USERS, OWNER_ID
 
 
-@app.on_message(filters.command(["gban", "globalban"]) & SUDOERS)
+@app.on_message(filters.command(["gban", "globalban"]) & OWNER_ID)
 @language
 async def global_ban(client, message: Message, _):
     if not message.reply_to_message:
@@ -40,7 +39,7 @@ async def global_ban(client, message: Message, _):
         return await message.reply_text(_["gban_1"])
     elif user.id == app.id:
         return await message.reply_text(_["gban_2"])
-    elif user.id in SUDOERS:
+    elif user.id in OWNER_ID:
         return await message.reply_text(_["gban_3"])
     is_gbanned = await is_banned_user(user.id)
     if is_gbanned:
@@ -77,7 +76,7 @@ async def global_ban(client, message: Message, _):
     await mystic.delete()
 
 
-@app.on_message(filters.command(["ungban"]) & SUDOERS)
+@app.on_message(filters.command(["ungban"]) & OWNER_ID)
 @language
 async def global_un(client, message: Message, _):
     if not message.reply_to_message:
@@ -109,7 +108,7 @@ async def global_un(client, message: Message, _):
     await mystic.delete()
 
 
-@app.on_message(filters.command(["gbannedusers", "gbanlist"]) & SUDOERS)
+@app.on_message(filters.command(["gbannedusers", "gbanlist"]) & OWNER_ID)
 @language
 async def gbanned_list(client, message: Message, _):
     counts = await get_banned_count()
