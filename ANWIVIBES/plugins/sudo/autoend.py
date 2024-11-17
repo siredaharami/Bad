@@ -11,11 +11,11 @@ from pyrogram import filters
 from pyrogram.types import Message
 
 from ANWIVIBES import app
-from config import OWNER_ID
+from ANNIEMUSIC.misc import SUDOERS
 from ANWIVIBES.utils.database import autoend_off, autoend_on
 
 
-@app.on_message(filters.command("autoend") & OWNER_ID)
+@app.on_message(filters.command("autoend") & SUDOERS)
 async def auto_end_stream(_, message: Message):
     usage = "❖ <b>ᴇxᴀᴍᴘʟᴇ ➥</b> /autoend [ᴇɴᴀʙʟᴇ | ᴅɪsᴀʙʟᴇ]"
     if len(message.command) != 2:
