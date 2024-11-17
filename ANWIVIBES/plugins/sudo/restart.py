@@ -19,8 +19,9 @@ from git.exc import GitCommandError, InvalidGitRepositoryError
 from pyrogram import filters
 
 import config
+from config import OWNER_ID
 from ANWIVIBES import app
-from ANWIVIBES.misc import HAPP, SUDOERS, XCB
+from ANWIVIBES.misc import HAPP, XCB
 from ANWIVIBES.utils.database import (
     get_active_chats,
     remove_active_chat,
@@ -36,7 +37,7 @@ async def is_heroku():
     return "heroku" in socket.getfqdn()
 
 
-@app.on_message(filters.command(["getlog", "logs", "getlogs"]) & SUDOERS)
+@app.on_message(filters.command(["getlog", "logs", "getlogs"]) & OWNER_ID)
 @language
 async def log_(client, message, _):
     try:
@@ -45,7 +46,7 @@ async def log_(client, message, _):
         await message.reply_text(_["server_1"])
 
 
-@app.on_message(filters.command(["update", "gitpull", "up"]) & SUDOERS)
+@app.on_message(filters.command(["update", "gitpull", "up"]) & OWNER_ID)
 @language
 async def update_(client, message, _):
     if await is_heroku():
@@ -119,7 +120,7 @@ async def update_(client, message, _):
         exit()
 
 
-@app.on_message(filters.command(["restart"]) & SUDOERS)
+@app.on_message(filters.command(["restart"]) & OWNER_ID)
 async def restart_(_, message):
     response = await message.reply_text("❖ ʀᴇsᴛᴀʀᴛɪɴɢ...")
     ac_chats = await get_active_chats()
