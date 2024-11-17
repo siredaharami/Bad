@@ -18,7 +18,6 @@ from config import BANNED_USERS
 
 
 @app.on_message(filters.command(["blchat", "blacklistchat"]) & SUDOERS)
-@language
 async def blacklist_chat_func(client, message: Message, _):
     if len(message.command) != 2:
         return await message.reply_text(_["black_1"])
