@@ -11,14 +11,13 @@ from pyrogram import filters
 from pyrogram.types import Message
 
 from ANWIVIBES import app
-from ANWIVIBES.misc import SUDOERS
 from ANWIVIBES.utils.database import add_gban_user, remove_gban_user
 from ANWIVIBES.utils.decorators.language import language
 from ANWIVIBES.utils.extraction import extract_user
-from config import BANNED_USERS
+from config import BANNED_USERS, OWNER_ID
 
 
-@app.on_message(filters.command(["block"]) & SUDOERS)
+@app.on_message(filters.command(["block"]) & OWNER_ID)
 @language
 async def useradd(client, message: Message, _):
     if not message.reply_to_message:
@@ -32,7 +31,7 @@ async def useradd(client, message: Message, _):
     await message.reply_text(_["block_2"].format(user.mention))
 
 
-@app.on_message(filters.command(["unblock"]) & SUDOERS)
+@app.on_message(filters.command(["unblock"]) & OWNER_ID)
 @language
 async def userdel(client, message: Message, _):
     if not message.reply_to_message:
@@ -46,9 +45,9 @@ async def userdel(client, message: Message, _):
     await message.reply_text(_["block_4"].format(user.mention))
 
 
-@app.on_message(filters.command(["blocked", "blockedusers", "blusers"]) & SUDOERS)
+@app.on_message(filters.command(["blocked", "blockedusers", "blusers"]) & OWNER_ID)
 @language
-async def sudoers_list(client, message: Message, _):
+async def OWNER_ID_list(client, message: Message, _):
     if not BANNED_USERS:
         return await message.reply_text(_["block_5"])
     mystic = await message.reply_text(_["block_6"])
