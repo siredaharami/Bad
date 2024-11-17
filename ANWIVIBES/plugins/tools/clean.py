@@ -13,10 +13,10 @@ import shutil
 from pyrogram import filters
 
 from ANWIVIBES import app
-from ANWIVIBES.misc import SUDOERS
+from config import OWNER_ID
 
 
-@app.on_message(filters.command("clean") & SUDOERS)
+@app.on_message(filters.command("clean") & OWNER_ID)
 async def clean(_, message):
     A = await message.reply_text("ᴄʟᴇᴀɴɪɴɢ ᴛᴇᴍᴘ ᴅɪʀᴇᴄᴛᴏʀɪᴇs...")
     dir = "downloads"
