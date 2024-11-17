@@ -19,8 +19,9 @@ from time import time
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 
-from ANWIVIBES import app
-from config import OWNER_ID
+from TanuMusic import app
+from TanuMusic.misc import SUDOERS
+from TanuMusic.utils.cleanmode import protect_message
 
 
 async def aexec(code, client, message):
@@ -35,19 +36,14 @@ async def edit_or_reply(msg: Message, **kwargs):
     func = msg.edit_text if msg.from_user.is_self else msg.reply
     spec = getfullargspec(func.__wrapped__).args
     await func(**{k: v for k, v in kwargs.items() if k in spec})
+    await protect_message(msg.chat.id, msg.id)
 
 
 @app.on_edited_message(
-    filters.command("eval")
-    & filters.user(OWNER_ID)
-    & ~filters.forwarded
-    & ~filters.via_bot
+    filters.command(["ev", "eval"]) & SUDOERS & ~filters.forwarded & ~filters.via_bot
 )
 @app.on_message(
-    filters.command(["eval", "val", "v"], prefixes=["/", "!", ".", "E", "e"])
-    & filters.user(OWNER_ID)
-    & ~filters.forwarded
-    & ~filters.via_bot
+    filters.command(["ev", "eval"]) & SUDOERS & ~filters.forwarded & ~filters.via_bot
 )
 async def executor(client: app, message: Message):
     if len(message.command) < 2:
@@ -148,17 +144,9 @@ async def forceclose_command(_, CallbackQuery):
 
 
 @app.on_edited_message(
-    filters.command("sh")
-    & filters.user(OWNER_ID)
-    & ~filters.forwarded
-    & ~filters.via_bot
+    filters.command("sh") & SUDOERS & ~filters.forwarded & ~filters.via_bot
 )
-@app.on_message(
-    filters.command(["sh", "h"], prefixes=["/", "!", ".", "S", "s"])
-    & filters.user(OWNER_ID)
-    & ~filters.forwarded
-    & ~filters.via_bot
-)
+@app.on_message(filters.command("sh") & SUDOERS & ~filters.forwarded & ~filters.via_bot)
 async def shellrunner(_, message: Message):
     if len(message.command) < 2:
         return await edit_or_reply(message, text="<b>ᴇxᴀᴍᴩʟᴇ :</b>\n/sh git pull")
@@ -217,4 +205,5 @@ async def shellrunner(_, message: Message):
         await edit_or_reply(message, text=f"<b>OUTPUT :</b>\n<pre>{output}</pre>")
     else:
         await edit_or_reply(message, text="<b>OUTPUT :</b>\n<code>None</code>")
+
     await message.stop_propagation()
