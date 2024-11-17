@@ -11,7 +11,7 @@ from pyrogram import filters
 from pyrogram.types import Message
 
 from ANWIVIBES import app
-from ANNIEMUSIC.misc import SUDOERS
+from ANWIVIBES.misc import SUDOERS
 from ANWIVIBES.utils.database import blacklist_chat, blacklisted_chats, whitelist_chat
 from ANWIVIBES.utils.decorators.language import language
 from config import BANNED_USERS
