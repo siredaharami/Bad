@@ -18,6 +18,7 @@ from ANWIVIBES.utils.mongo import db
 afkdb = db.afk
 authdb = mongodb.adminauth
 authuserdb = mongodb.authuser
+commanddb = mongodb.commands
 autoenddb = mongodb.autoend
 assdb = mongodb.assistants
 blacklist_chatdb = mongodb.blacklistChat
