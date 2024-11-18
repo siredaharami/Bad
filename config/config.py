@@ -94,7 +94,6 @@ STRING5 = getenv("STRING_SESSION5", None)
 
 
 BANNED_USERS = filters.user()
-TEMP_DB_FOLDER = "tempdb"
 adminlist = {}
 lyrical = {}
 votemode = {}
