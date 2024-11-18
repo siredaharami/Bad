@@ -48,6 +48,9 @@ HEROKU_APP_NAME = getenv("HEROKU_APP_NAME", None)
 #❖  Get it from http://dashboard.heroku.com/account
 HEROKU_API_KEY = getenv("HEROKU_API_KEY", None)
 
+#❖ Set it true if you want your bot to be private only [You'll need to allow CHAT_ID via /authorize command then only your bot will play music in that chat.]
+PRIVATE_BOT_MODE = getenv("PRIVATE_BOT_MODE", "False")
+
 
 UPSTREAM_REPO = getenv(
     "UPSTREAM_REPO",
