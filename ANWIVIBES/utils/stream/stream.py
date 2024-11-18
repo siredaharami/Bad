@@ -13,7 +13,7 @@ from ANWIVIBES.utils.exceptions import AssistantErr
 from ANWIVIBES.utils.inline import aq_markup, close_markup, stream_markup
 from ANWIVIBES.utils.pastebin import Bin
 from ANWIVIBES.utils.stream.queue import put_queue, put_queue_index
-from ANWIVIBES.utils.thumbnails import gen_thumb
+from ANWIVIBES.utils.thumbnails import get_thumb
 
 
 async def stream(
