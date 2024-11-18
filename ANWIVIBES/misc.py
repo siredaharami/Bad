@@ -45,7 +45,7 @@ def dbb():
     LOGGER(__name__).info(f"Database Initialized.")
 
 
-def sudo():
+async def sudo():
     global SUDOERS
     OWNER = config.OWNER_ID
     if config.MONGO_DB_URI is None:
