@@ -15,7 +15,7 @@ from ANWIVIBES.misc import SUDOERS
 from ANWIVIBES.utils.database import add_gban_user, remove_gban_user
 from ANWIVIBES.utils.decorators.language import language
 from ANWIVIBES.utils.extraction import extract_user
-from config import BANNED_USERS
+from config import BANNED_USERS, OWNER_ID
 
 
 @app.on_message(filters.command(["addsudo"]) & filters.user(OWNER_ID))
