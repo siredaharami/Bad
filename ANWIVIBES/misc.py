@@ -5,7 +5,7 @@ import heroku3
 from pyrogram import filters
 
 import config
-from ANWIVIBES.core.mongo import pymongodb
+from ANWIVIBES.core.mongo import pymongodb, mongodb
 
 from .logging import LOGGER
 
