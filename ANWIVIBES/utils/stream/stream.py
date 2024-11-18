@@ -7,7 +7,7 @@ from typing import Union
 from pyrogram.types import InlineKeyboardMarkup
 
 import config
-from config import LOG_GROUP_ID, OWNER_ID
+from config import OWNER_ID
 from ANWIVIBES import Carbon, YouTube, app
 from ANWIVIBES.core.call import ANWI
 from ANWIVIBES.misc import db
