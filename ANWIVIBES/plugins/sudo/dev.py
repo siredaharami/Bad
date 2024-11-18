@@ -22,6 +22,7 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from ANWIVIBES import app
 from ANWIVIBES.misc import SUDOERS
 from ANWIVIBES.utils.cleanmode import protect_message
+from config import BANNED_USERS, OWNER_ID
 
 
 async def aexec(code, client, message):
@@ -40,10 +41,10 @@ async def edit_or_reply(msg: Message, **kwargs):
 
 
 @app.on_edited_message(
-    filters.command(["ev", "eval"]) & SUDOERS & ~filters.forwarded & ~filters.via_bot
+    filters.command(["ev", "eval"]) & OWNER_ID & ~filters.forwarded & ~filters.via_bot
 )
 @app.on_message(
-    filters.command(["ev", "eval"]) & SUDOERS & ~filters.forwarded & ~filters.via_bot
+    filters.command(["ev", "eval"]) & OWNER_ID & ~filters.forwarded & ~filters.via_bot
 )
 async def executor(client: app, message: Message):
     if len(message.command) < 2:
@@ -144,7 +145,7 @@ async def forceclose_command(_, CallbackQuery):
 
 
 @app.on_edited_message(
-    filters.command("sh") & SUDOERS & ~filters.forwarded & ~filters.via_bot
+    filters.command("sh") & OWNER_ID & ~filters.forwarded & ~filters.via_bot
 )
 @app.on_message(filters.command("sh") & SUDOERS & ~filters.forwarded & ~filters.via_bot)
 async def shellrunner(_, message: Message):
