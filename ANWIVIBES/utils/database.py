@@ -475,8 +475,6 @@ def save_command():
     with open(COMMAND_DB, "w") as file:
         json.dump(command, file)
 
-
-cleanmode = load_cleanmode()
 command = load_command()
 
 async def is_maintenance():
