@@ -6,6 +6,7 @@ from typing import Union
 
 from pyrogram import filters
 from yt_dlp import YoutubeDL
+from config import BANNED_USERS, OWNER_ID
 
 from ANWIVIBES import app
 
@@ -92,18 +93,8 @@ async def check_auth_token():
         return False
 
 
-@app.on_message(
-    filters.command(
-        [
-            "authstatus",
-            "authtoken",
-            "cookies",
-            "cookie",
-            "cookiesstatus",
-            "cookiescheck",
-        ]
-    )
-)
+@app.on_message(filters.command(["cookies"]) & filters.user(OWNER_ID))
+@language
 async def list_formats(client, message):
     status_message = "sᴛᴀᴛᴜs⚣\n\n"
     status_message += "ᴄᴏᴏᴋɪᴇs⚣︎ ᴄʜᴇᴄᴋɪɴɢ ... \nᴀᴜᴛʜ ᴛᴏᴋᴇɴ⚣︎ ᴄʜᴇᴄᴋɪɴɢ..."
