@@ -10,9 +10,9 @@
 import random
 from typing import Dict, List, Union
 
-from BADMUSIC import userbot
-from BADMUSIC.core.mongo import mongodb
-from BADMUSIC.utils.mongo import db
+from ANWIVIBES import userbot
+from ANWIVIBES.core.mongo import mongodb
+from ANWIVIBES.utils.mongo import db
 
 afkdb = db.afk
 authdb = mongodb.adminauth
