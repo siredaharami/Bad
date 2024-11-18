@@ -1,13 +1,3 @@
-#
-# Copyright (C) 2024 by IamDvis@Github, < https://github.com/IamDvis >.
-#
-# This file is part of < https://github.com/IamDvis/DV-VIBES > project,
-# and is released under the MIT License.
-# Please see < https://github.com/IamDvis/DV-VIBES/blob/master/LICENSE >
-#
-# All rights reserved.
-
-
 import os
 from random import randint
 from typing import Union
@@ -23,7 +13,7 @@ from ANWIVIBES.utils.exceptions import AssistantErr
 from ANWIVIBES.utils.inline import aq_markup, close_markup, stream_markup
 from ANWIVIBES.utils.pastebin import Bin
 from ANWIVIBES.utils.stream.queue import put_queue, put_queue_index
-from ANWIVIBES.utils.thumbnails import get_thumb
+from ANWIVIBES.utils.thumbnails import gen_thumb
 
 
 async def stream(
@@ -88,7 +78,15 @@ async def stream(
                         vidid, mystic, video=status, videoid=True
                     )
                 except:
+                    await app.send_message(
+                config.LOG_GROUP_ID,
+                f"ʜᴇʏ [ᴏᴡɴᴇʀ](tg://user?id={config.OWNER_ID}) ᴍᴀʏ ʙᴇ ᴄᴏᴏᴋɪᴇs ʜᴀs ʙᴇᴇɴ ᴅᴇᴀᴅ ᴘʟᴇᴀsᴇ ᴜᴘᴅᴀᴛᴇ ᴄᴏᴏᴋɪᴇ",
+            )
                     raise AssistantErr(_["play_14"])
+                    await app.send_message(
+                config.OWNER_ID,
+                f"ʜᴇʏ [ᴏᴡɴᴇʀ](tg://user?id={config.OWNER_ID}) ᴍᴀʏ ʙᴇ ᴄᴏᴏᴋɪᴇs ʜᴀs ʙᴇᴇɴ ᴅᴇᴀᴅ ᴘʟᴇᴀsᴇ ᴜᴘᴅᴀᴛᴇ ᴄᴏᴏᴋɪᴇ",
+            )
                 await ANWI.join_call(
                     chat_id,
                     original_chat_id,
@@ -108,7 +106,7 @@ async def stream(
                     "video" if video else "audio",
                     forceplay=forceplay,
                 )
-                img = await get_thumb(vidid)
+                img = await gen_thumb(vidid)
                 button = stream_markup(_, chat_id)
                 run = await app.send_photo(
                     original_chat_id,
@@ -126,7 +124,7 @@ async def stream(
         if count == 0:
             return
         else:
-            link = await Bin(msg)
+            link = await ANWIBin(msg)
             lines = msg.count("\n")
             if lines >= 17:
                 car = os.linesep.join(msg.split(os.linesep)[:17])
@@ -147,12 +145,28 @@ async def stream(
         duration_min = result["duration_min"]
         thumbnail = result["thumb"]
         status = True if video else None
+    
+        current_queue = db.get(chat_id)
+
+        
+        if current_queue is not None and len(current_queue) >= 10:
+            return await app.send_message(original_chat_id, "You can't add more than 10 songs to the queue.")
+
         try:
             file_path, direct = await YouTube.download(
                 vidid, mystic, videoid=True, video=status
             )
         except:
+            await app.send_message(
+                config.LOG_GROUP_ID,
+                f"ʜᴇʏ [ᴏᴡɴᴇʀ](tg://user?id={config.OWNER_ID}) ᴍᴀʏ ʙᴇ ᴄᴏᴏᴋɪᴇs ʜᴀs ʙᴇᴇɴ ᴅᴇᴀᴅ ᴘʟᴇᴀsᴇ ᴜᴘᴅᴀᴛᴇ ᴄᴏᴏᴋɪᴇ",
+            )
             raise AssistantErr(_["play_14"])
+            await app.send_message(
+                config.OWNER_ID,
+                f"ʜᴇʏ [ᴏᴡɴᴇʀ](tg://user?id={config.OWNER_ID}) ᴍᴀʏ ʙᴇ ᴄᴏᴏᴋɪᴇs ʜᴀs ʙᴇᴇɴ ᴅᴇᴀᴅ ᴘʟᴇᴀsᴇ ᴜᴘᴅᴀᴛᴇ ᴄᴏᴏᴋɪᴇ",
+            )
+
         if await is_active_chat(chat_id):
             await put_queue(
                 chat_id,
@@ -194,7 +208,7 @@ async def stream(
                 "video" if video else "audio",
                 forceplay=forceplay,
             )
-            img = await get_thumb(vidid)
+            img = await gen_thumb(vidid)
             button = stream_markup(_, chat_id)
             run = await app.send_photo(
                 original_chat_id,
@@ -253,7 +267,7 @@ async def stream(
                 original_chat_id,
                 photo=config.SOUNCLOUD_IMG_URL,
                 caption=_["stream_1"].format(
-                    config.SUPPORT_CHAT, title[:23], duration_min, user_name
+                    config.SUPPORT_GROUP, title[:23], duration_min, user_name
                 ),
                 reply_markup=InlineKeyboardMarkup(button),
             )
@@ -362,7 +376,7 @@ async def stream(
                 "video" if video else "audio",
                 forceplay=forceplay,
             )
-            img = await get_thumb(vidid)
+            img = await gen_thumb(vidid)
             button = stream_markup(_, chat_id)
             run = await app.send_photo(
                 original_chat_id,
