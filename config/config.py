@@ -47,8 +47,6 @@ HEROKU_APP_NAME = getenv("HEROKU_APP_NAME", None)
 #❖  Get it from http://dashboard.heroku.com/account
 HEROKU_API_KEY = getenv("HEROKU_API_KEY", None)
 
-#❖ Maximum number of video calls allowed on bot. You can later set it via /set_video_limit on telegram
-VIDEO_STREAM_LIMIT = int(getenv("VIDEO_STREAM_LIMIT", "999"))
 
 UPSTREAM_REPO = getenv(
     "UPSTREAM_REPO",
