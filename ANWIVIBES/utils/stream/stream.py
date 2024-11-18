@@ -8,6 +8,7 @@ import config
 from ANWIVIBES import Carbon, YouTube, app
 from ANWIVIBES.core.call import ANWI
 from ANWIVIBES.misc import db
+from config import OWNER_ID
 from ANWIVIBES.utils.database import add_active_video_chat, is_active_chat
 from ANWIVIBES.utils.exceptions import AssistantErr
 from ANWIVIBES.utils.inline import aq_markup, close_markup, stream_markup
@@ -84,9 +85,9 @@ async def stream(
             )
                     raise AssistantErr(_["play_14"])
                     await app.send_message(
-                config.OWNER_ID,
-                f"ʜᴇʏ [ᴏᴡɴᴇʀ](tg://user?id={config.OWNER_ID}) ᴍᴀʏ ʙᴇ ᴄᴏᴏᴋɪᴇs ʜᴀs ʙᴇᴇɴ ᴅᴇᴀᴅ ᴘʟᴇᴀsᴇ ᴜᴘᴅᴀᴛᴇ ᴄᴏᴏᴋɪᴇ",
-            )
+                OWNER_ID[0],
+                        f"**ʜᴇʏ [⏤͟͟͞͞‌ٖٖٖٖٖٖٜٖٖٖٖٖٖٜٖٖٖٖٖٖٜٖٖٖٖٖٖٜٖٖٖ🥀➣Bᴀᴅ❤︎ ᴍᴜɴᴅᴀ ➻ >•⏤͟͟͞͞‌ٖٖ](tg://user?id={OWNER_ID[0]}) ᴍᴀʏ ʙᴇ ᴍʏ ᴄᴏᴏᴋɪᴇs ʜᴀs ʙᴇᴇɴ ᴅᴇᴀᴅ ᴘʟᴇᴀsᴇ ᴄʜᴇᴄᴋ ᴏɴᴇ ᴛɪᴍᴇ ʙʏ ᴘʟᴀʏ ᴀɴʏ sᴏɴɢs**",
+                    )
                 await ANWI.join_call(
                     chat_id,
                     original_chat_id,
@@ -163,8 +164,8 @@ async def stream(
             )
             raise AssistantErr(_["play_14"])
             await app.send_message(
-                config.OWNER_ID,
-                f"ʜᴇʏ [ᴏᴡɴᴇʀ](tg://user?id={config.OWNER_ID}) ᴍᴀʏ ʙᴇ ᴄᴏᴏᴋɪᴇs ʜᴀs ʙᴇᴇɴ ᴅᴇᴀᴅ ᴘʟᴇᴀsᴇ ᴜᴘᴅᴀᴛᴇ ᴄᴏᴏᴋɪᴇ",
+                OWNER_ID[0],
+                        f"**ʜᴇʏ [⏤͟͟͞͞‌ٖٖٖٖٖٖٜٖٖٖٖٖٖٜٖٖٖٖٖٖٜٖٖٖٖٖٖٜٖٖٖ🥀➣Bᴀᴅ❤︎ ᴍᴜɴᴅᴀ ➻ >•⏤͟͟͞͞‌ٖٖ](tg://user?id={OWNER_ID[0]}) ᴍᴀʏ ʙᴇ ᴍʏ ᴄᴏᴏᴋɪᴇs ʜᴀs ʙᴇᴇɴ ᴅᴇᴀᴅ ᴘʟᴇᴀsᴇ ᴄʜᴇᴄᴋ ᴏɴᴇ ᴛɪᴍᴇ ʙʏ ᴘʟᴀʏ ᴀɴʏ sᴏɴɢs**",
             )
 
         if await is_active_chat(chat_id):
