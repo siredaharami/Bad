@@ -505,6 +505,7 @@ async def maintenance_off():
         return
     return await onoffdb.delete_one({"on_off": 1})
 
+COMMAND_DB = os.path.join(config.TEMP_DB_FOLDER, "command.json")
 
 async def maintenance_on():
     maintenance.clear()
