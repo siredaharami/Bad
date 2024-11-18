@@ -1,7 +1,6 @@
 from pyrogram import filters
 
 import config
-from strings import get_command
 from ANWIVIBES import app
 from ANWIVIBES.misc import SUDOERS
 from ANWIVIBES.utils.database import add_off, add_on
