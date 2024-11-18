@@ -11,11 +11,12 @@ from pyrogram import filters
 
 from ANWIVIBES import app
 from ANWIVIBES.misc import SUDOERS
+from config import BANNED_USERS, OWNER_ID
 from ANWIVIBES.utils.database import add_off, add_on
 from ANWIVIBES.utils.decorators.language import language
 
 
-@app.on_message(filters.command(["logger"]) & SUDOERS)
+@app.on_message(filters.command(["logger"]) & filters.user(OWNER_ID))
 @language
 async def logger(client, message, _):
     usage = _["log_1"]
