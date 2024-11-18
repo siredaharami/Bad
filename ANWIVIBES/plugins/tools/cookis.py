@@ -7,6 +7,7 @@ from typing import Union
 from pyrogram import filters
 from yt_dlp import YoutubeDL
 from config import BANNED_USERS, OWNER_ID
+from ANWIVIBES.utils.decorators.language import language
 
 from ANWIVIBES import app
 
