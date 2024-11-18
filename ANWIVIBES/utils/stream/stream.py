@@ -79,7 +79,7 @@ async def stream(
                     )
                 except:
                     await app.send_message(
-                config.LOG_GROUP_ID,
+                config.LOGGER_ID,
                 f"ʜᴇʏ [ᴏᴡɴᴇʀ](tg://user?id={config.OWNER_ID}) ᴍᴀʏ ʙᴇ ᴄᴏᴏᴋɪᴇs ʜᴀs ʙᴇᴇɴ ᴅᴇᴀᴅ ᴘʟᴇᴀsᴇ ᴜᴘᴅᴀᴛᴇ ᴄᴏᴏᴋɪᴇ",
             )
                     raise AssistantErr(_["play_14"])
@@ -158,7 +158,7 @@ async def stream(
             )
         except:
             await app.send_message(
-                config.LOG_GROUP_ID,
+                config.LOGGER_ID,
                 f"ʜᴇʏ [ᴏᴡɴᴇʀ](tg://user?id={config.OWNER_ID}) ᴍᴀʏ ʙᴇ ᴄᴏᴏᴋɪᴇs ʜᴀs ʙᴇᴇɴ ᴅᴇᴀᴅ ᴘʟᴇᴀsᴇ ᴜᴘᴅᴀᴛᴇ ᴄᴏᴏᴋɪᴇ",
             )
             raise AssistantErr(_["play_14"])
