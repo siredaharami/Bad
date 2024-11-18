@@ -53,6 +53,7 @@ async def sudo():
             SUDOERS.add(user_id)
     else:
         sudoersdb = pymongodb.sudoers
+        sudoersdb = mongodb.sudoers
         sudoers = sudoersdb.find_one({"sudo": "sudo"})
         sudoers = [] if not sudoers else sudoers["sudoers"]
         for user_id in OWNER:
