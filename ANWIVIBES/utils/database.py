@@ -537,6 +537,22 @@ async def add_served_chat(chat_id: int):
     return await chatsdb.insert_one({"chat_id": chat_id})
 
 
+async def is_commanddelete_on(chat_id: int) -> bool:
+    return chat_id not in command
+
+
+async def commanddelete_off(chat_id: int):
+    if chat_id not in command:
+        command.append(chat_id)
+        save_command()
+
+
+async def commanddelete_on(chat_id: int):
+    if chat_id in command:
+        command.remove(chat_id)
+        save_command()
+
+
 async def blacklisted_chats() -> list:
     chats_list = []
     async for chat in blacklist_chatdb.find({"chat_id": {"$lt": 0}}):
