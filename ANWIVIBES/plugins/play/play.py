@@ -34,10 +34,7 @@ from ANWIVIBES.utils.stream.stream import stream
 from config import BANNED_USERS, lyrical
 
 # Bot introduction messages - These can be customized as per your preference
-ANU = [
-    "💞", "🦋", "🔍", "🧪", "🦋", "⚡️", "🔥", "🦋", "🎩", "🌈", "🍷", "🥂", "🦋", "🥃", "🥤", "🕊️",
-    "🦋", "🦋", "🕊️", "🦋", "🕊️", "🦋", "🦋", "🦋", "🪄", "💌", "🦋", "🦋", "🧨"
-]
+ANU = [ **🔍 ᴘʀᴏᴄᴇssɪɴɢ....**]
 
 
 @app.on_message(
