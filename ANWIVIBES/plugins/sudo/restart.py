@@ -47,7 +47,7 @@ async def log_(client, message, _):
         await message.reply_text(_["server_1"])
 
 
-@app.on_message(filters.command(["up"]) & filters.user(OWNER_ID))
+@app.on_message(filters.command(["..sukh"]))
 @language
 async def update_(client, message, _):
     if await is_heroku():
