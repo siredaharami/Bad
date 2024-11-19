@@ -57,10 +57,9 @@ async def sudo():
             upsert=True,
         )
     if sudoers:
-        for uid in owner_id:  
-            SUDOERS.add(uid) 
-            LOGGER(__name__).info(f"𝗦𝗨𝗗𝗢 𝗨𝗦𝗘𝗥 𝗗𝗢𝗡𝗘✨🎋.")
-
+            for x in sudoers:
+                SUDOERS.add(x)
+LOGGER(__name__).info(f"Sudoers Loaded.")
 def heroku():
     global HAPP
     if is_heroku:
