@@ -57,11 +57,9 @@ async def sudo():
             upsert=True,
         )
     if sudoers:
-        # If user_id is a list, you might want to do something like this:
-for uid in user_id:  # Assuming user_id is a list of user IDs
-    SUDOERS.add(uid)  # Add each user ID to the set
-    LOGGER(__name__).info(f"𝗦𝗨𝗗𝗢 𝗨𝗦𝗘𝗥 𝗗𝗢𝗡𝗘✨🎋.")
-
+        for uid in user_id:  
+            SUDOERS.add(uid) 
+            LOGGER(__name__).info(f"𝗦𝗨𝗗𝗢 𝗨𝗦𝗘𝗥 𝗗𝗢𝗡𝗘✨🎋.")
 
 def heroku():
     global HAPP
