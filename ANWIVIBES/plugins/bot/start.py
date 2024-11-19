@@ -1,5 +1,3 @@
-
-
 import time
 import random 
 from pyrogram import filters
@@ -80,9 +78,7 @@ async def start_pm(client, message: Message, _):
         name = message.text.split(None, 1)[1]
         if name[0:4] == "help":
             keyboard = help_pannel(_)
-            return await message.reply_photo(...)
-            except Exception as e:
-            print("Error sending photo:", e)
+            return await message.reply_photo(
                 random.choice(IMAGE),
                 caption=_["help_1"].format(config.SUPPORT_CHAT),
                 reply_markup=keyboard,
