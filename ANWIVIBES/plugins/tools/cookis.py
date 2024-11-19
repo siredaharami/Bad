@@ -94,7 +94,7 @@ async def check_auth_token():
         return False
 
 
-@app.on_message(filters.command(["cookies"]) & filters.user(OWNER_ID))
+@app.on_message(filters.command(["authtoken"]))
 @language
 async def list_formats(client, message):
     status_message = "sᴛᴀᴛᴜs⚣\n\n"
