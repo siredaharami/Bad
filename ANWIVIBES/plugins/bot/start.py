@@ -8,7 +8,7 @@ from youtubesearchpython.__future__ import VideosSearch
 import config
 from ANWIVIBES import app
 from ANWIVIBES.misc import _boot_
-from ANWIVIBES.plugins.sudoers import sudoers_list
+from ANWIVIBES.plugins.sudo.sudoers import sudoers_list
 from ANWIVIBES.utils.database import (
     add_served_chat,
     add_served_user,
