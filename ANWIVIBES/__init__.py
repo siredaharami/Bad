@@ -11,7 +11,7 @@ from ANWIVIBES.core.bot import Anwi
 from ANWIVIBES.core.dir import dirr
 from ANWIVIBES.core.git import git
 from ANWIVIBES.core.userbot import Userbot
-from ANWIVIBES.misc import dbb, heroku
+from ANWIVIBES.misc import dbb, heroku, sudo
 
 from .logging import LOGGER
 
@@ -19,6 +19,7 @@ dirr()
 git()
 dbb()
 heroku()
+sudo()
 
 app = Anwi()
 userbot = Userbot()
