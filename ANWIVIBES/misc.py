@@ -56,9 +56,15 @@ async def sudo():
             {"$set": {"sudoers": sudoers}},
             upsert=True,
         )
-    if sudoers:
-            for x in sudoers:
-                SUDOERS.add(x)
+        
+async def sudo():
+    # Assuming x is obtained from somewhere in your code
+    x = ...  # Obtain x from your logic
+    if isinstance(x, list):
+        for item in x:
+            SUDOERS.add(item)  # Add each item in the list
+    else:
+        SUDOERS.add(x)  # If x is not a list, add it directly
 LOGGER(__name__).info(f"Sudoers Loaded.")
 def heroku():
     global HAPP
