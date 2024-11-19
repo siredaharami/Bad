@@ -131,6 +131,9 @@ async def start_pm(client, message: Message, _):
     else:
         out = private_panel(_)
         await message.reply_photo(
+            except Exception as e:
+    print("Error sending photo:", e)
+    else:
             random.choice(IMAGE),
             caption=_["start_2"].format(message.from_user.mention, app.mention),
             reply_markup=InlineKeyboardMarkup(out),
