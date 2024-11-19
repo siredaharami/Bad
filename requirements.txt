@@ -21,6 +21,7 @@ pytube
 pykeyboard
 unidecode
 pyromod
+py-tgcalls==1.2.9
 ntgcalls==1.1.2
 python-dotenv
 pyyaml
@@ -48,7 +49,6 @@ pytz
 pydub
 apscheduler
 gtts
-py-tgcalls==0.9.7
 git+https://github.com/KurimuzonAkuma/pyrogram@dev
 git+https://github.com/yt-dlp/yt-dlp
 git+https://github.com/alexmercerind/youtube-search-python@main
