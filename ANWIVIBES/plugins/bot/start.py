@@ -131,7 +131,7 @@ async def start_pm(client, message: Message, _):
     else:
         out = private_panel(_)
         await message.reply_photo(
-            User  ID: {type(self.user_id)} - Value: {self.user_id},
+            print(f"User  ID: {type(self.user_id)} - Value: {self.user_id}"),
             random.choice(IMAGE),
             caption=_["start_2"].format(message.from_user.mention, app.mention),
             reply_markup=InlineKeyboardMarkup(out),
