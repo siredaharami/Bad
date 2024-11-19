@@ -143,7 +143,7 @@ async def start_pm(client, message: Message, _):
             OWNER = OWNER_ID[0]
         except Exception:
             OWNER = None
-        out = private_panel(_, app.username, OWNER)
+        out = private_panel(_)
         if config.START_IMG_URL:
             try:
                 await message.reply_photo(
