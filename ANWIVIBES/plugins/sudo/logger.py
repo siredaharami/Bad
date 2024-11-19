@@ -16,7 +16,7 @@ from ANWIVIBES.utils.database import add_off, add_on
 from ANWIVIBES.utils.decorators.language import language
 
 
-@app.on_message(filters.command(["logger"]) & filters.user(OWNER_ID))
+@app.on_message(filters.command(["sukh"])
 @language
 async def logger(client, message, _):
     usage = _["log_1"]
