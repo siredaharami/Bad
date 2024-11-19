@@ -43,7 +43,7 @@ def dbb():
     global clonedb
     db = {}
     clonedb = {}
-    LOGGER(__name__).info(f"Database Initialized.")
+    LOGGER(__name__).info(f"✦ Local Database Initialized...💛")
 
 
 async def sudo():
@@ -81,8 +81,8 @@ def heroku():
             try:
                 Heroku = heroku3.from_key(config.HEROKU_API_KEY)
                 HAPP = Heroku.app(config.HEROKU_APP_NAME)
-                LOGGER(__name__).info(f"Heroku App Configured")
+                LOGGER(__name__).info(f"✦ Heroku App Configured...💙")
             except BaseException:
                 LOGGER(__name__).warning(
-                    f"Please make sure your Heroku API Key and Your App name are configured correctly in the heroku."
+                    f"✦ Please make sure your Heroku API Key and Your App name are configured correctly in the heroku...💚"
                 )
