@@ -148,7 +148,7 @@ async def start_pm(client, message: Message, _):
             try:
                 await message.reply_photo(
                     photo=config.START_IMG_URL,
-                    caption=_["start_2"].format(app.mention, get_readable_time(uptime)),
+                    caption=_["start_2"].format(message.from_user.mention, app.mention),
                     reply_markup=InlineKeyboardMarkup(out),
                 )
             except Exception:
@@ -158,7 +158,7 @@ async def start_pm(client, message: Message, _):
                 )
         else:
             await message.reply_text(
-                text=_["start_2"].format(app.mention, get_readable_time(uptime)),
+                caption=_["start_2"].format(message.from_user.mention, app.mention),
                 reply_markup=InlineKeyboardMarkup(out),
             )
         if await is_on_off(config.LOG):
