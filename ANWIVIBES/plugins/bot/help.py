@@ -1,26 +1,17 @@
-#
-# Copyright (C) 2024 by IamDvis@Github, < https://github.com/IamDvis >.
-#
-# This file is part of < https://github.com/IamDvis/DV-VIBES > project,
-# and is released under the MIT License.
-# Please see < https://github.com/IamDvis/DV-VIBES/blob/master/LICENSE >
-#
-# All rights reserved.
-
 from typing import Union
 import random 
 from pyrogram import filters, types
 from pyrogram.types import InlineKeyboardMarkup, Message
 
-from ANWIVIBES import app
-from ANWIVIBES.utils import help_pannel
-from ANWIVIBES.utils.database import get_lang
-from ANWIVIBES.utils.decorators.language import LanguageStart, languageCB
-from ANWIVIBES.utils.inline.help import help_back_markup, private_help_panel
+from AnonXMusic import app
+from AnonXMusic.utils import help_pannel
+from AnonXMusic.utils.database import get_lang
+from AnonXMusic.utils.decorators.language import LanguageStart, languageCB
+from AnonXMusic.utils.inline.help import help_back_markup, private_help_panel
 from config import BANNED_USERS, START_IMG_URL, SUPPORT_CHAT
 from strings import get_string, helpers
 
-AVISHA = [
+Anon = [
 "https://graph.org/file/eaa3a2602e43844a488a5.jpg",
 "https://graph.org/file/b129e98b6e5c4db81c15f.jpg",
 "https://graph.org/file/3ccb86d7d62e8ee0a2e8b.jpg",
@@ -64,7 +55,7 @@ async def helper_private(
         _ = get_string(language)
         keyboard = help_pannel(_)
         await update.reply_photo(
-            random.choice(AVISHA),
+            random.choice(Anon),
             caption=_["help_1"].format(SUPPORT_CHAT),
             reply_markup=keyboard,
         )
